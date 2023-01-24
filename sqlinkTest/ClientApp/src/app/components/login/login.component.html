@@ -1,0 +1,34 @@
+<h1 class="text-center">Login Page</h1>
+
+<div class="container">
+    <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" formControlName="email" placeholder="Enter email">
+            <small class="form-text text-muted"
+                *ngIf="loginForm.controls.email.touched && loginForm.controls.email.errors?.required">
+                Email address is required!
+            </small>
+
+            <small class="form-text text-muted"
+                *ngIf="loginForm.controls.email.touched && loginForm.controls.email.errors?.email">
+                Email address not well formed!
+            </small>
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" formControlName="password" placeholder="Password">
+            <small class="form-text text-muted"
+                *ngIf="loginForm.controls.password.touched && loginForm.controls.password.errors?.required">
+                Password is required!
+            </small>
+
+            <small class="form-text text-muted"
+                *ngIf="loginForm.controls.password.touched && loginForm.controls.password.errors">
+                The password must contain only English letters and numbers,
+                Between 8-20 characters </small>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Submit</button>
+    </form>
+</div>
