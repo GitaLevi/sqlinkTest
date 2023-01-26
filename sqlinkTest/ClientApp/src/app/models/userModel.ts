@@ -5,8 +5,9 @@ export interface userModel {
 }
 
 export interface personalDetailsModel {
+    id: number;
     name: string;
     team: string;
-    joinedAt: string;
+    joinedAt: Date;
     avatar: string;
 }

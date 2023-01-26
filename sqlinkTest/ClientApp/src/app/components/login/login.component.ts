@@ -44,6 +44,9 @@ export class LoginComponent implements OnInit {
           if (response) {
             this.router.navigate(['/info']);
           }
+          else {
+            alert("User does not exist in the system");
+          }
           this.loadingService.loadingSubject.next(false);
         }
       });

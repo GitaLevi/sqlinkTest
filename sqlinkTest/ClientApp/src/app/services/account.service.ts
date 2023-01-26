@@ -23,12 +23,13 @@ export class AccountService {
   }
 
   loginUser(user: loginModel): Observable<userModel> {
-    return this.httpClient.post<userModel[]>("https://private-052d6-testapi4528.apiary-mock.com/authenticate"/*`${environment.apiUrl}/users/authenticate`*/, { user })
-      .pipe(map(userResponse => {
-        const user = userResponse[0];
-        this.localStorageService.set(cookieKeys.token, user.token);
-        this.localStorageService.set(cookieKeys.user, JSON.stringify(user));
-        this.userSubject.next(user);
+    return this.httpClient.post<userModel>(`${environment.apiUrl}/UserDetails`, user)
+      .pipe(map(user => {
+        if (user) {
+          this.localStorageService.set(cookieKeys.token, user.token);
+          this.localStorageService.set(cookieKeys.user, JSON.stringify(user));
+          this.userSubject.next(user);
+        }
         return user;
       }));
   }

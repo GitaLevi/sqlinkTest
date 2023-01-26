@@ -14,6 +14,9 @@ import { AuthGuard } from './helpers/auth.guard';
 import { InfoComponent } from './components/info/info.component';
 import { UserCardComponent } from './components/user-card/user-card.component';
 import { ProjectsCardComponent } from './components/projects-card/projects-card.component';
+import { MatFormFieldModule, MatPaginatorModule } from '@angular/material';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -28,16 +31,23 @@ import { ProjectsCardComponent } from './components/projects-card/projects-card.
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    MatTableModule,
     MatProgressSpinnerModule,
+    MatFormFieldModule,
+    MatSortModule,
+    MatPaginatorModule,
     RouterModule.forRoot([
       { path: 'login', component: LoginComponent },
-      { path: 'info', component: InfoComponent, canActivate: [AuthGuard] }
+      { path: 'info', component: InfoComponent, canActivate: [AuthGuard] },
+      { path: '**', redirectTo: 'login' }
     ])
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ProjectsCardComponent]
+
 })
 export class AppModule { }
