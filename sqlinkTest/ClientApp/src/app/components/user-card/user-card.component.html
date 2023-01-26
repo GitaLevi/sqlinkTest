@@ -2,11 +2,11 @@
     <h2>Card</h2>
 
     <div class="card">
-        <img *ngIf="userDetails.avatar" src="{{userDetails?.avatar}}" alt="Avatar" class="avatarImg">
+        <img *ngIf="userDetails.avatar" src="{{userDetails.avatar}}" alt="Avatar" class="avatarImg">
         <div class="container">
-            <h4><b>{{userDetails?.name}}</b></h4>
-            <p>{{userDetails?.team}}</p>
-            <p>{{userDetails?.joinedAt | date}}</p>
+            <h4><b>{{userDetails.name}}</b></h4>
+            <p>{{userDetails.team}}</p>
+            <p>{{userDetails.joinedAt | date}}</p>
         </div>
     </div>
 </div>

@@ -1,1 +1,0 @@
-{"ast":null,"code":"export var cookieKeys = /*#__PURE__*/(() => {\n  (function (cookieKeys) {\n    cookieKeys[\"token\"] = \"token\";\n    cookieKeys[\"user\"] = \"user\";\n  })(cookieKeys || (cookieKeys = {}));\n\n  return cookieKeys;\n})();","map":null,"metadata":{},"sourceType":"module"}

@@ -14,9 +14,13 @@ import { AuthGuard } from './helpers/auth.guard';
 import { InfoComponent } from './components/info/info.component';
 import { UserCardComponent } from './components/user-card/user-card.component';
 import { ProjectsCardComponent } from './components/projects-card/projects-card.component';
-import { MatFormFieldModule, MatPaginatorModule } from '@angular/material';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
+
 
 @NgModule({
   declarations: [
@@ -33,9 +37,12 @@ import { MatTableModule } from '@angular/material/table';
     ReactiveFormsModule,
     MatTableModule,
     MatProgressSpinnerModule,
-    MatFormFieldModule,
+    MatInputModule,
     MatSortModule,
-    MatPaginatorModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
+    MatGridListModule,
+    MatCardModule,
     RouterModule.forRoot([
       { path: 'login', component: LoginComponent },
       { path: 'info', component: InfoComponent, canActivate: [AuthGuard] },
